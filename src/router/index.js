@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from './views/Login'
-import LoginSubmit from './components/LoginSubmit'
-import Manager from './components/privilegeManager/Manager'
+import Login from '../views/Login'
+import Manager from '../components/privilegeManager/Manager'
 
 
 

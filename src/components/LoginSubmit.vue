@@ -85,17 +85,14 @@ props :{
     }
     
   },
-  mounted () {
+  created () {
     this.axios
-      .get('http://jsonplaceholder.typicode.com/users')
+      .get('http://localhost:8080/users.json',{})
       .then(response => (this.list = response.data))
       this.state1=this.$attrs.state }
 }
-
-
-
-
 </script>
+
 <style>
 .login_button {
   position: relative; 

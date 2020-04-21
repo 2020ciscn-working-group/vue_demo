@@ -21,10 +21,7 @@ export default {
         }
     },
     methods:{
-        Goback(){
-          router.go(-1)
-
-        }
+       
     }
 }
 </script>

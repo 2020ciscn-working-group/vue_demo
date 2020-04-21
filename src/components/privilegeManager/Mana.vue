@@ -4,14 +4,10 @@
        <router-link to="/" slot="left">
      <mt-button icon="back"></mt-button>
   </router-link>
-  <mt-button  slot="right"  @click="addTab" class="mintui mintui-icon_roundadd"></mt-button> </mt-header>
+  <mt-button  slot="right"  @click.native="addTab" icon="mintui mintui-icon_roundadd_fill"></mt-button> </mt-header>
     <div class="home">
   <div class="container">
-   <div class="addZujian">
-   
-
-
-   </div>
+ 
    <div class="zujianContent">
  
     <component
@@ -55,7 +51,7 @@ export default {
 };
 </script>
  
-<style lang="css" scoped>
+<style  scoped>
 
 </style>
 

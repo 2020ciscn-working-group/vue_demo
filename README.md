@@ -1,12 +1,23 @@
-# limni
+# vue_demo
 
-A collection of samples show in my [Youtube](https://www.youtube.com/channel/UCMZcg3titeO2OWU-afSzzdQ).
-
-## Getting started
+## Project setup
 ```
-$ npm install
-$ cd <sample-subfolder>
-$ npm run serve
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
 ```
 
 ### Customize configuration

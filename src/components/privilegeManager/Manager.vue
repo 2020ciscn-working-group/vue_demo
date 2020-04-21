@@ -73,7 +73,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped >
+<style  scoped >
 .el-container {
   
   height: 100%;
