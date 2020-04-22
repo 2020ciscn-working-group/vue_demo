@@ -31,17 +31,18 @@ export default {
     return {
        state1:1,
        component: "Mana",
-       selected: sessionStorage.getItem('selected')? JSON.parse(sessionStorage.getItem('selected')):'授权管理',
-                tab1: '授权管理',
-                tab2: '面对面授权',
-                tab3: '出入记录',
-                tab4: '好友'  
+      //  selected: sessionStorage.getItem('selected')? JSON.parse(sessionStorage.getItem('selected')):'授权管理',
+      //           tab1: '授权管理',
+      //           tab2: '面对面授权',
+      //           tab3: '出入记录',
+      //           tab4: '好友'  
+      selected:'tab1'
     };
   },
   watch: {
-      selected(val, oldVal){
+      selected:function(val){
           //一旦标签栏变化，把selected的值存到sessionStorage，保存当前值
-          sessionStorage.setItem('selected', JSON.stringify(val))
+          // sessionStorage.setItem('selected', JSON.stringify(val))
           if(val === "tab1"){
               //路由跳转 到首页
              this.component='Mana' 

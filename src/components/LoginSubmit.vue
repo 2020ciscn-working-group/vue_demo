@@ -33,11 +33,6 @@ props :{
     type:String
   }
 },
- watch: {
-    Email() {
-        console.log(this.Email)
-    }
-},
  data(){
       return{
           list:null,
@@ -86,10 +81,12 @@ props :{
     
   },
   created () {
-    this.axios
+    this.$axios
       .get('http://localhost:8080/users.json',{})
       .then(response => (this.list = response.data))
-      this.state1=this.$attrs.state }
+      this.state1=this.$attrs.state 
+      
+      }
 }
 </script>
 
