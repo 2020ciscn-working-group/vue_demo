@@ -47,47 +47,51 @@ props :{
   methods:{
     SignIn(){
       if(this.state1==1){
-        for(var i=0;i<this.list.length;i++){
-           if(this.Email==this.list[i].id)
-                if(this.Pass==this.list[i].id)
-                  {
-                  this.$router.push({name:'Manager'}) //跳转到功能页面
-                  return this.$message.success('登录成功');
-                  }  
+          
+                   this.$axios.get('/Gettest').then(res=>{
+                                         console.log(res.data)
+                         }).then().catch()
+                    this.$axios.post("/Posttest", {
+                      username: this.Email,
+                      password: this.Pass
+    })
+    .then(res => console.log(res.data))
+    .catch(err => console.error(err));
+                  // this.$router.push({name:'Manager'}) //跳转到功能页面
+                  // return this.$message.success('登录成功');
+                  
            
        } 
-        return this.$message.error('用户名或密码错误');
-        
+       else
+       return this.$message.error('用户名或密码错误');     
     }
-    },
+    ,
     SignUp(){
     if(this.state1==2){
      if(this.Email==""||this.FirstName==""||this.LastName==""||this.Pass==""||this.Repass=="")
      alert("存在空项")
       else {
-        this.axios
-        .post('http://jsonplaceholder.typicode.com/users', {
-        FirstName:this.FirstName, 
-        LastName: this.LastName,
-        Email:this.Email,
-        Pass:this.Pass,
-        Repass:this.Repass
-    })
-    .then(res => console.log(res))
-    .catch(err => console.error(err));
-    }
-      }
-    }
-    
-  },
-  created () {
-    this.$axios
-      .get('http://localhost:8080/users.json',{})
-      .then(response => (this.list = response.data))
-      this.state1=this.$attrs.state 
+        this.$axios.post('/login', {
+         username: this.FirstName+this.LastName,
+         password: this.Pass,
+     })
+     .then(
+         successResponse => {
+         if (successResponse.data.code === 200) {
+             this.$router.replace({path: '/index'})
+         }else{
+             console.log("账号或密码错误");
+             this.loginForm.message="账号或密码错误";
+         }
+     })
+     .catch(failResponse => {
+     })
       
-      }
-}
+    }
+    }
+  }
+  }
+  }
 </script>
 
 <style>
