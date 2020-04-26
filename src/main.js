@@ -25,7 +25,7 @@ Vue.component(Search.name, Search);
 // Vue.use(MintUI)
 // Vue.prototype.$axios = axios
 // Vue.use(axios)
-Vue.prototype.$ajax = axios
+Vue.prototype.$http = axios
 Vue.use(ElementUI)
 
 

@@ -1,7 +1,7 @@
 <template>
   <span class="login_textfield">
     <label><i v-if="icon" :class="['fa', `fa-${icon}`]"></i> {{ label }}</label>
-    <input v-model="message" type="text" @mouseout="sendMsg" />
+    <input v-model="message" type="text" @input="sendMsg" />
     
   </span>
 </template>
