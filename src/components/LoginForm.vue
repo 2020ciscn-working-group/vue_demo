@@ -22,6 +22,7 @@
     </div>
     <div>
       <login-submit  v-bind:Repass="Repass"  v-bind:Pass="Pass"  v-bind:Email="Email" v-bind:FirstName="FirstName" v-bind:LastName="LastName" v-bind="this.$attrs" />
+      
     </div>
   </form>
 </template>

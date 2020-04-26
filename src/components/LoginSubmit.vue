@@ -1,12 +1,12 @@
 <template>
   <span class="login_button">
-    <input type="button" value="Sign Up" @click="SignUp()" @mouseenter="state1=$attrs.state" />
-    <input type="button" value="Sign In" @click="SignIn()" @mouseenter="state1=$attrs.state" />
-
+    <!-- <input type="button" value="Sign Up" @click="SignUp()" @mouseenter="state1=$attrs.state" /> -->
+    <!-- <input type="button" value="Sign In" @click="SignIn()" @mouseenter="state1=$attrs.state" /> -->
+    <input type="button" value="测试"  @click="onGetUser()" >
     <!-- 
     <label>Sign In</label>
     <label>Sign Up</label>-->
-    n
+    
   </span>
 </template>
 
@@ -36,10 +36,11 @@ export default {
     return {
       list: null,
       state1: 1 //控制按钮执行的功能
-    };
+    }
   },
   methods: {
     SignIn() {
+      //登录按钮
       if (this.state1 == 1) {
         // if (this.Email == "" || this.Pass == "")
         //   return this.$message.error("请填写用户名或密码");
@@ -55,13 +56,13 @@ export default {
         //   })
         //     .then(Response => console.log(Response.data))
         //     .catch(error => console.error(error.message))
-          this.$router.push({name:'Manager'}) //跳转到功能页面
-          return this.$message.success('登录成功');
-        }
-      
+        this.$router.push({ name: "Manager" }); //跳转到功能页面
+        return this.$message.success("登录成功");
+      }
     },
     SignUp() {
       if (this.state1 == 2) {
+        //注册按钮
         if (
           this.Email == "" ||
           this.FirstName == "" ||
@@ -82,34 +83,29 @@ export default {
               Repassword: this.Repass
             }
           })
-            .then(response => console.log(response.data)) //跳转到功能页面 )
+            .then(response => console.log(response.data))
             .catch(error => console.error(error.message));
-   
         }
       }
     },
-//调用安卓接口  
-  AndriodMethod() {
-    $App.callAndroidMethod(a,b,c,d)
-  },
-  onFinish(){
-    $App.finish()
-  },
-  onGetUser(){
-    $App.getUser(this.FirstName+this.LastName)     
-  },
-  onGetFriend(){
-    $App.getFriend()//friend还没出来
-  },
-  onGetFriends(){
-    $App.getFriends()
+    //调用安卓接口
+    AndriodMethod() {
+      $App.callAndroidMethod(a, b, c, d);
+    },
+    onFinish() {
+      $App.finish();
+    },
+    onGetUser() {
+      $App.getUser(this.FirstName + this.LastName);
+    },
+    onGetFriend() {
+      $App.getFriend(); //friend还没出来
+    },
+    onGetFriends() {
+      $App.getFriends();
+    }
   }
-
-  
-  
-}  
-}
-
+};
 </script>
 
 <style>
