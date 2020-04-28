@@ -1,59 +1,52 @@
 <template>
-  <div>
-    <div class="ConnectTheManager">
-    <div class="header">
-      <!-- <router-link to="/MainApp/"> -->
-      <div class="one">
-        <div class="goBack">
-          <van-button type="default"  @click="onBack">
-            <van-icon name="arrow-left" size="32" />
-          </van-button>
+    <!-- 三槽标题 -->
+    <div>
+      <div class="ConnectTheManager">
+        <div class="header">
+          <!-- <router-link to="/MainApp/"> -->
+          <div class="one">
+            <div class="goBack">
+              <van-button type="default" @click="onBack">
+                <van-icon name="arrow-left" size="32" />
+              </van-button>
+            </div>
+          </div>
+          <!-- </router-link> -->
+          <div class="two">
+            <div class="info">消息</div>
+          </div>
+          <div class="three">
+            <div class="setting"></div>
+          </div>
         </div>
       </div>
-      <!-- </router-link> -->
-      <div class="two">
-        <div class="info">出入记录</div>
-      </div>
-      <div class="three">
-        <div class="setting"></div>
-      </div>
     </div>
-  </div>
-  </div>
 </template>
-<script>
 
+<script>
 export default {
-  props: {
-    title: {
-      type: String
-    }
-  },
-  data() {
-    return {
-      list: [
-        {
-          date: "2019-10-1",
-          name: "lijiarui",
-          place: "2号楼"
-        },
-        {
-          date: "2019-10-1",
-          name: "Sst",
-          place: "2号楼"
-        }
-      ]
-    };
-  },
-  methods: {
-    onBack() {
+  methods:{
+     onBack() {
       this.$emit('func1','Mana')
     }
   }
-};
+}
 </script>
-<style scoped>
 
+<style scoped>
+.m-header {
+  height: 50px;
+  line-height: 50px;
+  background: #245fd7;
+  color: #fff;
+}
+
+.m-header-icon {
+  position: absolute;
+  top: 16px;
+  left: 6px;
+  font-size: 18px;
+}
 .ConnectTheManager {
   width: 100% ;
   height: 50px;

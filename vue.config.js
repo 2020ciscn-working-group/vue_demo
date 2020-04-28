@@ -1,18 +1,15 @@
-const Gettest = require('./mock/users.json');
-const Posttest = require('./mock/post.json');
-
+// const Gettest = require('./mock/users.json');
+// const Posttest = require('./mock/post.json');
 const express = require('express')
 const app = express()
 let apiRoutes = express.Router()
 app.use('/api', apiRoutes)　
-
 module.exports = {
     outputDir: 'dist', //构建输出目录
     assetsDir:   'assets',  //静态资源目录
     lintOnSave: false,  //是否开启eslint保存检测
     publicPath: './',
     runtimeCompiler : true,
-
   //   devServer: {
   //     open:true,
   //     host:'localhost',

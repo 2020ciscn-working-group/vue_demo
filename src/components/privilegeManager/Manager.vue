@@ -1,19 +1,38 @@
-<template>
+  <template>
   <el-container>
-    
-    <el-header height="25px"></el-header>
-    
+    <!-- 三槽标题 -->
+    <div>
+      <div class="ConnectTheManager">
+        <div class="header">
+          <!-- <router-link to="/MainApp/"> -->
+          <div class="one">
+            <div class="goBack">
+              <van-button type="default" @click="onBack">
+                <van-icon name="arrow-left" size="32" />
+              </van-button>
+            </div>
+          </div>
+          <!-- </router-link> -->
+          <div class="two">
+            <div class="info">消息</div>
+          </div>
+          <div class="three">
+            <div class="setting"></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <el-main>
-      <component :is="component"></component>
+      <component :is="component" :title="title" @func1="getcomponent"></component>
     </el-main>
-    
+
     <el-footer height="25px">
-      <mt-tabbar v-model="selected">
-        <mt-tab-item id="tab1" class="mintui mintui-icon_workmore">授权管理</mt-tab-item>
-        <mt-tab-item id="tab2" class="mintui mintui-icon_QRcode">面对面授权</mt-tab-item>
-        <mt-tab-item id="tab3" class="mintui mintui-icon_compile">出入记录</mt-tab-item>
-        <mt-tab-item id="tab4" class="mintui mintui-icon_group">好友</mt-tab-item>
-      </mt-tabbar>
+      <van-tabbar v-model="active" @change="onChange">
+        <van-tabbar-item icon="manager">授权管理</van-tabbar-item>
+        <van-tabbar-item icon="todo-list">出入记录</van-tabbar-item>
+        <van-tabbar-item icon="friends">好友</van-tabbar-item>
+        <van-tabbar-item icon="chat" badge="9">消息</van-tabbar-item>
+      </van-tabbar>
     </el-footer>
   </el-container>
 </template>
@@ -23,54 +42,47 @@
 <script>
 import Head from "./Head";
 import Mana from "./Mana";
-import FaceToFace from "./FaceToFace";
+import Message from "./Message";
 import Records from "./Records";
 import Friends from "./Friends";
-
 export default {
   data() {
     return {
       state1: 1,
       component: "Mana",
-      selected: sessionStorage.getItem("selected")
-        ? JSON.parse(sessionStorage.getItem("selected"))
-        : "授权管理",
-      tab1: "授权管理",
-      tab2: "面对面授权",
-      tab3: "出入记录",
-      tab4: "好友"
+      active: 0,
+      title:'消息记录'
     };
   },
-  watch: {
-    selected: function(val) {
-      //一旦标签栏变化，把selected的值存到sessionStorage，保存当前值
-      sessionStorage.setItem('selected', JSON.stringify(val))
-      if (val === "tab1") {
-        //路由跳转 到首页
-        this.component = "Mana";
-        console.log(this.component);
-      } else if (val === "tab2") {
-        //路由跳转 到购物车
-        this.component = "FaceToFace";
-        console.log(this.component);
-      } else if (val === "tab3") {
-        this.component = "Records";
-        console.log(this.component);
-      } else if (val === "tab4") {
-        //路由跳转 到个人中心
-        this.component = "Mine";
-        console.log(this.component);
+  methods: {
+    onChange(index) {
+      switch (index) {
+        case 0:
+          this.component = "Mana";
+          break;
+        case 1:
+          this.component = "Records";
+          break;
+        case 2:
+          this.component = "Friends";
+          break;
+        case 3:
+          this.component = "Message";
       }
+    },
+    getcomponent(data){
+      this.component=data,
+      this.active=0
     }
   },
   components: {
     Head,
     Mana: Mana,
-    FaceToFace: FaceToFace,
+    Message:Message,
     Records: Records,
     Friends: Friends
   }
-}
+};
 </script>
 
 <style  scoped >
@@ -88,8 +100,52 @@ export default {
 .el-aside {
   background-color: aqua;
 }
-
 .el-footer {
   background-color: burlywood;
 }
+.ConnectTheManager {
+  width: 100% ;
+  height: 50px;
+}
+.header {
+  justify-content: space-between;
+  display: flex;
+  background-color: rgb(243, 245, 243);
+  height: 3em;
+}
+.header .one {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+}
+.header .two {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.header .three {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+}
+.header .one,
+.two,
+.three {
+  width: 100px; 
+}
+
+.header .one * {
+  border: none;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .info {
+  font-size: larger;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 </style>
+

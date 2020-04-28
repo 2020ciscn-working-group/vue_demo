@@ -20,12 +20,7 @@ _axios.defaults.headers.post['Content-Type'] = 'application/json'
 _axios.defaults.headers.put['Content-Type'] = 'application/json'
 
 
-let config = {
-  // baseURL: process.env.baseURL || process.env.apiUrl || ""
-  // timeout: 60 * 1000, // Timeout
-  // withCredentials: true, // Check cross-site Access-Control
 
-};
 //添加请求拦截器(回调函数)
 // _axios.interceptors.request.use(
 //   config=>{
@@ -119,7 +114,7 @@ let config = {
 //   return service
 // }
 
-Plugin.install = function(Vue, options) {
+Plugin.install = function(Vue) {
   Vue.axios = _axios;
   window.axios = _axios;
   Object.defineProperties(Vue.prototype, {

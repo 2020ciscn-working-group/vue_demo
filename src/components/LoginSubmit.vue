@@ -1,8 +1,8 @@
 <template>
   <span class="login_button">
-    <!-- <input type="button" value="Sign Up" @click="SignUp()" @mouseenter="state1=$attrs.state" /> -->
-    <!-- <input type="button" value="Sign In" @click="SignIn()" @mouseenter="state1=$attrs.state" /> -->
-    <input type="button" value="测试"  @click="onGetUser()" >
+    <input type="button" value="Sign Up" @click="SignUp()" @mouseenter="state1=$attrs.state"/>
+   <input type="button" value="Sign In" @click="SignIn()" @mouseenter="state1=$attrs.state" />
+    
     <!-- 
     <label>Sign In</label>
     <label>Sign Up</label>-->
@@ -87,22 +87,6 @@ export default {
             .catch(error => console.error(error.message));
         }
       }
-    },
-    //调用安卓接口
-    AndriodMethod() {
-      $App.callAndroidMethod(a, b, c, d);
-    },
-    onFinish() {
-      $App.finish();
-    },
-    onGetUser() {
-      $App.getUser(this.FirstName + this.LastName);
-    },
-    onGetFriend() {
-      $App.getFriend(); //friend还没出来
-    },
-    onGetFriends() {
-      $App.getFriends();
     }
   }
 };

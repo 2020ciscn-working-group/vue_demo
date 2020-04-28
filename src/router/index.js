@@ -4,8 +4,6 @@ import Login from '../views/Login'
 import Manager from '../components/privilegeManager/Manager'
 
 
-
-
 Vue.use(Router)
 
 export default new Router({
@@ -22,6 +20,7 @@ export default new Router({
       name:'Manager',
       component:Manager
     }
+
   ]
 })
 
