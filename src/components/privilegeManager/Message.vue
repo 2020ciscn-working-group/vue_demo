@@ -1,5 +1,5 @@
 <template>
-    <!-- 三槽标题 -->
+   <!-- 三槽标题 -->
     <div>
       <div class="ConnectTheManager">
         <div class="header">
@@ -19,7 +19,7 @@
             <div class="setting"></div>
           </div>
         </div>
-      </div>
+      </div> 
     </div>
 </template>
 

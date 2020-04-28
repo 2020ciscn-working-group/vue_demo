@@ -1,29 +1,8 @@
   <template>
   <el-container>
-    <!-- 三槽标题 -->
-    <div>
-      <div class="ConnectTheManager">
-        <div class="header">
-          <!-- <router-link to="/MainApp/"> -->
-          <div class="one">
-            <div class="goBack">
-              <van-button type="default" @click="onBack">
-                <van-icon name="arrow-left" size="32" />
-              </van-button>
-            </div>
-          </div>
-          <!-- </router-link> -->
-          <div class="two">
-            <div class="info">消息</div>
-          </div>
-          <div class="three">
-            <div class="setting"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+   
     <el-main>
-      <component :is="component" :title="title" @func1="getcomponent"></component>
+      <component :is="component"></component>
     </el-main>
 
     <el-footer height="25px">
@@ -51,7 +30,7 @@ export default {
       state1: 1,
       component: "Mana",
       active: 0,
-      title:'消息记录'
+    
     };
   },
   methods: {
@@ -69,10 +48,6 @@ export default {
         case 3:
           this.component = "Message";
       }
-    },
-    getcomponent(data){
-      this.component=data,
-      this.active=0
     }
   },
   components: {

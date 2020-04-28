@@ -7,7 +7,7 @@ import axios from 'axios'
 // import Vueaxios from 'vue-axios'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-import {Swipe,Header,SwipeItem,Search,Cell} from 'mint-ui'
+
 import './assets/font/iconfont.css'
 import './plugins/element.js'
 
@@ -24,11 +24,7 @@ Vue.use(ContactCard);
 Vue.use(ContactList);
 Vue.use(ContactEdit);
 Vue.use(Button);
-Vue.component(Cell.name, Cell);
-Vue.component(Swipe.name, Swipe);
-Vue.component(Header.name, Header);
-Vue.component(SwipeItem.name, SwipeItem);
-Vue.component(Search.name, Search);
+
 
 // Vue.use(MintUI)
 // Vue.prototype.$axios = axios

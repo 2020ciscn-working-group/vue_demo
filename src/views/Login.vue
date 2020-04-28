@@ -9,8 +9,8 @@
   </div>
 </template>
 <script>
-import LoginTabs from '../components/LoginTabs'
-import LoginForm from '../components/LoginForm'
+import LoginTabs from '../components/login/LoginTabs'
+import LoginForm from '../components/login/LoginForm'
 
 export default {
   components: {

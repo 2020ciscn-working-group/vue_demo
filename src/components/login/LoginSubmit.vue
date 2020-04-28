@@ -12,7 +12,7 @@
 
 
 <script>
-import "../plugins/axios.js";
+import axios from "@/plugins/axios";
 export default {
   //  props:["FirstName","LastName","Email","Pass","Repass"],
   props: {

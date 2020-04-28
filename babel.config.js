@@ -3,8 +3,6 @@ module.exports = {
     '@vue/cli-plugin-babel/preset'
   ],
   "plugins": [
-    "transform-vue-jsx",
-    "transform-runtime",
     [
       "import",
       {
@@ -12,15 +10,6 @@ module.exports = {
         "libraryDirectory": "es",
         "style": true
       }
-    ],
-    [
-      "component",
-      [
-        {
-          "libraryName": "mint-ui",
-          "style": true
-        }
-      ]
     ]
   ]
 

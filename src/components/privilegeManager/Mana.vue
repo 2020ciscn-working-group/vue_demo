@@ -1,49 +1,94 @@
 <template>
-  <el-container>
- 
-    <div class="home">
-      <div class="container">
-        <div class="zujianContent">
-          <component
-            v-for="(item,index) in comName"
-            :is="item.name"
-            :key="index"
-            @func="getContent(index)"
-          ></component>
+   <!-- 三槽标题 -->
+    <div>
+      <div class="ConnectTheManager">
+        <div class="header">
+          <!-- <router-link to="/MainApp/"> -->
+          <div class="one">
+            <div class="goBack">
+              <van-button type="default" @click="onBack">
+                <van-icon name="arrow-left" size="32" />
+              </van-button>
+            </div>
+          </div>
+          <!-- </router-link> -->
+          <div class="two">
+            <div class="info">授权管理</div>
+          </div>
+          <div class="three">
+            <div class="setting"></div>
+          </div>
         </div>
-      </div>
+      </div> 
     </div>
-  </el-container>
 </template>
- 
-<script>
-// 引入子组件
-import ManaTab from "./ManaTab";
 
+<script>
 export default {
-  data() {
-    return {
-      comName: []
-    };
-  },
-  components: {
-    ManaTab
-  },
-  methods: {
-    // 添加组件1
-    addTab() {
-      this.comName.push({
-        name: "ManaTab"
-      });
-    },
-    // 删除组件
-    getContent(index) {
-      this.comName.splice(index, 1);
+  methods:{
+     onBack() {
+      this.$emit('func1','Mana')
     }
   }
-};
+}
 </script>
- 
-<style  scoped>
-</style>
 
+<style scoped>
+.m-header {
+  height: 50px;
+  line-height: 50px;
+  background: #245fd7;
+  color: #fff;
+}
+
+.m-header-icon {
+  position: absolute;
+  top: 16px;
+  left: 6px;
+  font-size: 18px;
+}
+.ConnectTheManager {
+  width: 100% ;
+  height: 50px;
+}
+.header {
+  justify-content: space-between;
+  display: flex;
+  background-color: rgb(243, 245, 243);
+  height: 3em;
+}
+.header .one {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+}
+.header .two {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.header .three {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+}
+.header .one,
+.two,
+.three {
+  width: 100px; 
+}
+
+.header .one * {
+  border: none;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .info {
+  font-size: larger;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
