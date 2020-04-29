@@ -39,3 +39,17 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
+
+router.beforeEach((to, from, next) => { 
+	//console.log(to, from, next) //
+	if(to.name=='/'){ //本身就是登录页，就不用验证登录session了
+		next()
+		return
+	}
+	// if(!sessionStorage.getItem('username')){ //没有登录/登录过期
+	// 	next({path:'/', query:{redirect:to.path}})
+  // }
+  else{
+		next()
+	}
+})

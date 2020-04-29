@@ -2,7 +2,7 @@
   <el-container>
    
     <el-main>
-      <component :is="component"></component>
+      <component :is="component" @func1="back"></component>
     </el-main>
 
     <el-footer height="25px">
@@ -48,6 +48,9 @@ export default {
         case 3:
           this.component = "Message";
       }
+    },
+    back(str){
+       this.component=str
     }
   },
   components: {
