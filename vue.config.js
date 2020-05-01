@@ -11,29 +11,20 @@ module.exports = {
     publicPath: './',
     runtimeCompiler : true,
     devServer: {
-      open:true,
-      host:'localhost',
-      port:8080,
-      // https:false,    
-      // proxy: {
-      //     '/api': {
-      //          target: 'http://172.18.188.126:81/',                
-      //          ws:true,
-      //          changeOrigin: true,
-      //          pathRewrite: {
-      //          '^/api':''   
-      //               }
-      //         }
-      //    }
-  //     before(app){
-  //       http://localhost:8080/Gettest
-  //       app.get('/Gettest',(req,res)=>{
-  //         res.json(Gettest);
-  //       }),
-  //       app.post('/Posttest', (req, res) => {
-  //         res.json(Posttest)
-  //       })        
-  //     }
-  // }
-}
+      open: true,
+      host: 'localhost',
+      port: 8080,
+      https: false,
+      proxy: {
+        // 配置跨域
+        '/api': {
+          target: 'http://localhost:5001/api/',
+          ws: true,
+          changOrigin: true,
+          pathRewrite: {
+            '^/api': ''
+          }
+        }
+      }
+    }
 }

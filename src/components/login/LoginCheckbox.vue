@@ -20,7 +20,7 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
 .login_checkbox input {
   display: none;
 }

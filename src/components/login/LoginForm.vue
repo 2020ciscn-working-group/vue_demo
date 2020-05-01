@@ -6,14 +6,18 @@
         <login-textfield  @func="getLastName"   label="Last name" />
       </div>
     </div>
+     <div class="login_form_r6">
+      <Login-Textfield @func="getPhonenum"  label="Phone number" icon="phone"/>
+    </div>
     <div class="login_form_r2">
       <Login-Textfield @func="getEmail"  label="Email address" icon="envelope-o"/>
     </div>
+   
     <div class="login_form_r3">
-      <login-textfield @func="getPass"  label="Enter password" icon="lock" />
+      <login-textfield @func="getPass" type="password" label="Enter password" icon="lock" />
     </div>
     <div class="login_form_r4">
-      <login-textfield @func="getRepass"  label="Re-enter password" icon="lock" />
+      <login-textfield @func="getRepass" type="password"  label="Re-enter password" icon="lock" />
     </div>
     <div class="login_form_r5">
       <login-checkbox label="Keep me sign in" />
@@ -36,6 +40,7 @@ export default {
     return{
         FirstName:'',
         LastName:'',
+        Phonenum:'',
         Email:'',
         Pass:'',
         Repass:'',
@@ -58,6 +63,9 @@ export default {
         getRepass(data){
           this.Repass = data
           
+        },
+        getPhonenum(data){
+          this.Phonenum=data
         }
   },
   components: {
@@ -67,7 +75,7 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
 .login_form {
   padding: 20px;
   
@@ -102,7 +110,8 @@ export default {
   opacity: 0;
 }
 .login__signin .login_form_r1,
-.login__signin .login_form_r4 {
+.login__signin .login_form_r4,
+.login__signin .login_form_r6 {
   opacity: 0;
   transform: translateY(30%) scale(0.8);
 }

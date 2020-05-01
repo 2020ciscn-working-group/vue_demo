@@ -1,7 +1,7 @@
 <template>
   <span class="login_button">
-    <input type="button" value="Sign Up" @click="SignUp()" @mouseenter="state1=$attrs.state"/>
-   <input type="button" value="Sign In" @click="SignIn()" @mouseenter="state1=$attrs.state" />
+    <input type="button" value="Sign Up" @click="SignUp(),onLogin()" @mouseenter="state1=$attrs.state"/>
+   <input type="button" value="Sign In" @click="SignIn(),onRegister()" @mouseenter="state1=$attrs.state" />
     
     <!-- 
     <label>Sign In</label>
@@ -87,12 +87,18 @@ export default {
             .catch(error => console.error(error.message));
         }
       }
+    },
+    onLogin(){
+      $App.login(this.Email,this.Pass)
+    },
+    onRegister(){
+      $App.signup()
     }
   }
 };
 </script>
 
-<style>
+<style scoped>
 .login_button {
   position: relative;
   display: flex;

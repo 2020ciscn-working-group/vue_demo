@@ -1,7 +1,7 @@
 <template>
   <span class="login_textfield">
     <label><i v-if="icon" :class="['fa', `fa-${icon}`]"></i> {{ label }}</label>
-    <input v-model="message" type="text" @input="sendMsg" />
+    <input v-model="message" :type="type" @input="sendMsg" />
     
   </span>
 </template>
@@ -13,6 +13,10 @@ export default {
     },
     icon: {                              
       type: String
+    },
+    type:{
+       type: String,
+       default: "text"
     }
   },
   data(){
@@ -31,7 +35,7 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
 .login_textfield {
   flex: 1;
   display: flex;
@@ -55,5 +59,7 @@ export default {
   padding: 0;
   border: none;
   outline: none;
+  color:black;
+  
 }
 </style>
