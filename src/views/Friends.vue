@@ -37,19 +37,22 @@ export default {
           name: "lsafjlfa",
           _id: 1,
           email: "123@163.com",
-          data: "2019-4-1"
+          data: "2019-4-1",
+          phoneNum:'18510782131'
         },
         {
           name: "lifnanf",
           _id: 2,
           email: "123@163.com",
-          data: "2019-4-1"
+          data: "2019-4-1",
+          phoneNum:'18510782131'
         },
         {
           name: "lfalkm",
           _id: 3,
           email: "123@163.com",
-          data: "2019-4-1"
+          data: "2019-4-1",
+          phoneNum:'18510782131'
         }
       ],
       allFriends: [],
@@ -69,13 +72,13 @@ export default {
     //   });
     // },
     filterData() {
-      this.friendsList = this.allFriends.filter(friend => {
+      this.friendsList = this.friendsList.filter(friend => {
         return friend.name.indexOf(this.search_value) != -1;
       });
     },
     cellClick(friend) {
       // console.log(friend);
-      this.$store.dispatch("setTargetUser", friend);
+      this.$store.commit({type:"getTarget",Friend:friend});
       this.$router.push("/information");
     }
   },

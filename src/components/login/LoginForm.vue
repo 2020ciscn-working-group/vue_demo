@@ -25,7 +25,7 @@
       
     </div>
     <div>
-      <login-submit  v-bind:Repass="Repass"  v-bind:Pass="Pass"  v-bind:Email="Email" v-bind:FirstName="FirstName" v-bind:LastName="LastName" v-bind="this.$attrs" />
+      <login-submit @Clear="Clear" v-bind:Repass="Repass"  v-bind:Pass="Pass" :phoneNum="phoneNum" v-bind:Email="Email" v-bind:FirstName="FirstName" v-bind:LastName="LastName" v-bind="this.$attrs" />
       
     </div>
   </form>
@@ -40,7 +40,7 @@ export default {
     return{
         FirstName:'',
         LastName:'',
-        Phonenum:'',
+        phoneNum:'',
         Email:'',
         Pass:'',
         Repass:'',
@@ -65,7 +65,16 @@ export default {
           
         },
         getPhonenum(data){
-          this.Phonenum=data
+          this.phoneNum=data
+        },
+        Clear(){
+            this.FirstName='',
+            this.LastName='',
+            this.Email='',
+            this.phoneNum='',
+            this.Pass='',
+            this.Repass='',
+            console.log(this.FirstName)
         }
   },
   components: {
@@ -75,7 +84,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style >
 .login_form {
   padding: 20px;
   

@@ -6,12 +6,12 @@ import store from './store'
 import axios from 'axios'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-
 import './assets/font/iconfont.css'
 import './plugins/element.js'
+import '../src/cookieUtil'
 
-
-import { Tabbar, TabbarItem, ContactCard, ContactList, ContactEdit,Popup,Col,Row, Icon,NavBar,Button } from 'vant';
+import { Tabbar, TabbarItem, ContactCard, ContactList, ContactEdit,Popup,Col,Row, Icon,NavBar,Button,Notify } from 'vant';
+Vue.use(Notify)
 Vue.use(NavBar);
 Vue.use(Icon);
 Vue.use(Col);

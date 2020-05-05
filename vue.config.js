@@ -13,12 +13,12 @@ module.exports = {
     devServer: {
       open: true,
       host: 'localhost',
-      port: 8080,
+      port: 8081,
       https: false,
       proxy: {
         // 配置跨域
         '/api': {
-          target: 'http://localhost:5001/api/',
+          target: 'http://localhost:8080/',
           ws: true,
           changOrigin: true,
           pathRewrite: {
